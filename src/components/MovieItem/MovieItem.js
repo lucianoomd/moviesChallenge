@@ -7,14 +7,12 @@ import { COLORS, API } from '../../Constants';
 
 const movieItem = ({ item }) => (
     <View style={styles.container}>
-        <View style={styles.imageContainer}>
-            <View style={styles.header}>
-                <TitleText text={item.title} color={COLORS.WHITE} />
-            </View>
-            <Image style={styles.image}
-                source={{uri: `${API.IMAGES_BASE_PATH}${item.poster_path}`}}
-            />
+        <View style={styles.header}>
+            <TitleText text={item.title} color={COLORS.WHITE} fontWeight='bold' />
         </View>
+        <Image style={styles.image}
+            source={{uri: `${API.IMAGES_BASE_PATH}${item.poster_path}`}}
+        />
     </View>
 );
 

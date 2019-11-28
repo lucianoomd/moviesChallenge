@@ -5,4 +5,5 @@ export const COLORS = {
   LIGHT_GRAY: '#eee',
   RED: '#d9534f',
   DARKNESS: '#222',
+  TRANSPARENT_BLACK: 'rgba(0,0,0,0.7)',
 };

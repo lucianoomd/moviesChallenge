@@ -2,26 +2,29 @@ import { Dimensions } from 'react-native';
 import { StyleSheet } from 'react-native';
 import { COLORS } from '../../Constants';
 
-const screenWidth = Math.round(Dimensions.get('window').width);
+const imageMaxWidth = Math.round(Dimensions.get('window').width) / 2;
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 4,
-        margin: 4
+        flex: 2,
+        paddingBottom: 15,
+        marginTop: 4,
+        height: 250,
     },
     header: {
-        padding: 10,
-        flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.3)'
-    },
-    imageContainer: {
-        paddingBottom: 15,
-        borderBottomColor: COLORS.WHITE,
-        borderBottomWidth: 1,
+        height: 50,
+        backgroundColor: COLORS.TRANSPARENT_BLACK,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        zIndex: 1
     },
     image: {
-        height: screenWidth,
-        resizeMode: 'contain',
+        flex: 1,
+        maxWidth: imageMaxWidth,
+        resizeMode: 'contain'
     }
 });
 
