@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, FlatList, RefreshControl } from 'react-native';
+import { FlatList, RefreshControl } from 'react-native';
 import PropTypes from 'prop-types';
 import MovieItem from '../MovieItem/MovieItem';
 import styles from './MoviesListStyle';
 
-const moviesList = ({ movies, loading, updateList, reloadList }) => {
+const moviesList = ({ movies, loading, updateList, reloadList, goToMovieDetails }) => {
 
     const keyExtractor = (item, index) => String(index);
 
@@ -15,7 +15,11 @@ const moviesList = ({ movies, loading, updateList, reloadList }) => {
             }
             style={styles.container}
             data={movies}
-            renderItem={({item}) => <MovieItem item={item} />}
+            renderItem={({item, index}) => <MovieItem
+                item={item}
+                index={index}
+                goToMovieDetails={goToMovieDetails}
+            />}
             numColumns={2}
             keyExtractor={keyExtractor}
             onEndReached={updateList}

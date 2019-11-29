@@ -36,8 +36,12 @@ export default class Home extends Component {
       () => this.updateList());
   }
 
-  goToMovieDetail = () => {
-    this.props.navigation.navigate('MovieDetail');
+  goToMovieDetails = (index) => {
+    const { movies } = this.state;
+    this.props.navigation.navigate('MovieDetail', {
+      id: movies[index].id,
+      title: movies[index].title
+    });
   }
 
   render() {
@@ -51,6 +55,7 @@ export default class Home extends Component {
             loading={loading}
             reloadList={this.reloadList}
             updateList={this.updateList}
+            goToMovieDetails={this.goToMovieDetails}
           />
       </View>
     );

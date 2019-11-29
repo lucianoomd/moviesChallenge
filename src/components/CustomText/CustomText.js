@@ -1,14 +1,15 @@
 import React from 'react';
 import { Text } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from './TitleTextStyle';
+import styles from './CustomTextStyle';
 import { COLORS } from '../../Constants';
 
-const titleText = ({ text, fontSize, color, fontWeight }) => {
-  const textStyle = { ...styles.defaultTextStyle };
+const customText = ({ text, fontSize, color, fontWeight, textAlign }) => {
+  const textStyle = JSON.parse(JSON.stringify(styles.defaultTextStyle));
   if (fontSize) textStyle.fontSize = fontSize;
   if (color) textStyle.color = color;
   if (fontWeight) textStyle.fontWeight = fontWeight;
+  if (textAlign) textStyle.textAlign = textAlign;
 
   return (
     <Text style={textStyle} >
@@ -17,18 +18,19 @@ const titleText = ({ text, fontSize, color, fontWeight }) => {
   );
 };
 
-titleText.propTypes = {
-  text: PropTypes.string.isRequired,
+customText.propTypes = {
+  text: PropTypes.string,
   fontSize: PropTypes.number,
   color: PropTypes.string,
   fontWeight: PropTypes.string,
   textAlign: PropTypes.string
 };
 
-titleText.defaultProps = {
+customText.defaultProps = {
+  text: '',
   fontSize: 14,
-  color: COLORS.DARK_GRAY,
+  color: COLORS.WHITE,
   fontWeight: 'normal',
 };
 
-export default titleText;
+export default customText;
